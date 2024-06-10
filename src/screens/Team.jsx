@@ -4,8 +4,8 @@ import { Container, Row, Button, Card, Col } from 'react-bootstrap';
 import {useGetUsersQuery} from "../slices/userApiSlice"
 import axios from 'axios';
 const Team = () => {
-    const { data: users, refetch, isLoading, error } = useGetUsersQuery();
-    // const [users, setUsers] = useState([]);
+    // const { data: users, refetch, isLoading, error } = useGetUsersQuery();
+    const [users, setUsers] = useState([]);
 
 
     // useEffect(() => {
@@ -14,15 +14,16 @@ const Team = () => {
     //     .then(data => setUsers(data));
     // }, []);
 
-    // useEffect(() => {
-    //     axios.get('https://jsonplaceholder.typicode.com/users')
-    //       .then(response => {
-    //         setUsers(response.data);
-    //       })
-    //       .catch(error => {
-    //         alert("There was an error fetching the user data!", error);
-    //       });
-    //   }, []);
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+          .then(response => {
+            console.log("res....", response)
+            setUsers(response.data);
+          })
+          .catch(error => {
+            alert("There was an error fetching the user data!", error);
+          });
+      }, []);
   
   return (
     <div><h1>Team</h1>

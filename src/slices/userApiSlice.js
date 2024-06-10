@@ -5,7 +5,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => ({
-        url: USERS_URL,
+        url: `${USERS_URL}`,
       }),
       providesTags: ["Users"],
       keepUnusedDataFor: 5,
@@ -48,8 +48,8 @@ export const userApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetUsersQuery,
-  useGetUserDetailsQuery,
-  useCreateUserMutation,
-  useDeleteUserMutation,
-  useUpdateUserMutation
+  // useGetUserDetailsQuery,
+  // useCreateUserMutation,
+  // useDeleteUserMutation,
+  // useUpdateUserMutation
 } = userApiSlice;
